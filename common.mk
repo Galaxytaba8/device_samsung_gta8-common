@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-PLATFORM_PATH := device/samsung/gta8-common
+COMMON_PATH := device/samsung/gta8-common
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -26,6 +26,14 @@ PRODUCT_PACKAGES += \
     libaudioroute \
     libtinyalsa \
     libtinycompress
+
+PRODUCT_COPY_FILES += \
+    frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration_7_0.xml \
+    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/enginedefault/config/example/phone/audio_policy_engine_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_configuration.xml \
+    frameworks/av/services/audiopolicy/enginedefault/config/example/phone/audio_policy_engine_default_stream_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_default_stream_volumes.xml \
+    frameworks/av/services/audiopolicy/enginedefault/config/example/phone/audio_policy_engine_product_strategies.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_product_strategies.xml \
+    frameworks/av/services/audiopolicy/enginedefault/config/example/phone/audio_policy_engine_stream_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_stream_volumes.xml \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -202,14 +210,14 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc \
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.ums512_25c10:$(TARGET_COPY_OUT_RAMDISK)/fstab.ums512_25c10
+    $(COMMON_PATH)/rootdir/etc/fstab.ums512_25c10:$(TARGET_COPY_OUT_RAMDISK)/fstab.ums512_25c10
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(PLATFORM_PATH)
+    $(COMMON_PATH)
 
 DEVICE_PACKAGE_OVERLAYS += \
-    $(PLATFORM_PATH)/overlay
+    $(COMMON_PATH)/overlay
 
 PRODUCT_ENFORCE_RRO_TARGETS := \
     framework-res
