@@ -207,6 +207,7 @@ PRODUCT_PACKAGES += \
     fstab.factorytest \
     fstab.ramplus \
     fstab.ums512_25c10 \
+    fstab.ums512_25c10_ramdisk \
     ueventd.qcom.rc \
 
 PRODUCT_COPY_FILES += \

@@ -90,6 +90,14 @@ LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE := fstab.ums512_25c10_ramdisk
+LOCAL_SRC_FILES := fstab.ums512_25c10
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_STEM := fstab.ums512_25c10
+LOCAL_MODULE_PATH := $(TARGET_RAMDISK_OUT)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
 LOCAL_MODULE       := ueventd.qcom.rc
 LOCAL_MODULE_STEM  := ueventd.rc
 LOCAL_MODULE_TAGS  := optional
